@@ -1,0 +1,29 @@
+{
+  "name": "ecommerce-price-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Track prices of commodities of different ecommerce websites",
+  "main": "run.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --project=chromium --ui",
+    "test:headed": "playwright test --project=chromium --headed",
+    "report": "playwright show-report",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "track": "node runner/run.js"
+  },
+  "keywords": [],
+  "author": "Asikul Ansary",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "mongodb": "^7.1.0",
+    "nodemailer": "^8.0.3"
+  }
+}
