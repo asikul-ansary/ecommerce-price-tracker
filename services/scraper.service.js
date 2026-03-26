@@ -23,24 +23,24 @@ export async function scrapeProducts(products) {
     try {
       let price;
       switch (product.site?.toLowerCase()) {
-        // case 'amazon': {
-        //   const p = new AmazonPage(page);
-        //   await p.open(product.product_url);
-        //   price = await p.getPrice();
-        //   break;
-        // }
-        // case 'flipkart': {
-        //   const p = new FlipkartPage(page);
-        //   await p.open(product.product_url);
-        //   price = await p.getPrice();
-        //   break;
-        // }
-        // case 'myntra': {
-        //   const p = new MyntraPage(page);
-        //   await p.open(product.product_url);
-        //   price = await p.getPrice();
-        //   break;
-        // }
+        case 'amazon': {
+          const p = new AmazonPage(page);
+          await p.open(product.product_url);
+          price = await p.getPrice();
+          break;
+        }
+        case 'flipkart': {
+          const p = new FlipkartPage(page);
+          await p.open(product.product_url);
+          price = await p.getPrice();
+          break;
+        }
+        case 'myntra': {
+          const p = new MyntraPage(page);
+          await p.open(product.product_url);
+          price = await p.getPrice();
+          break;
+        }
         case 'ajio': {
           console.log(`inside ajio!!!`);
           const p = new AjioPage(page);
