@@ -3,8 +3,8 @@ name: Ecommerce Price Tracker
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "0 */6 * * *"
+  # schedule:
+  #   - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Tracker
-        run: npm run track
+        run: xvfb-run --auto-servernum npm run track
         env:
           DB_URL: ${{ secrets.DB_URL }}
           MAIL_USER: ${{ secrets.MAIL_USER }}
