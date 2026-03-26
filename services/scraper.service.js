@@ -4,10 +4,11 @@ import { FlipkartPage } from '../pages/flipkart.page.js';
 import { MyntraPage } from '../pages/myntra.page.js';
 import { AjioPage } from '../pages/ajio.page.js';
 import { config } from '../config/config.js';
+import 'dotenv/config';
 
 export async function scrapeProducts(products) {
   const browser = await chromium.launch({
-    headless: config.scraper.headless
+    headless: process.env.CI ? true : false
   });
   const context = await browser.newContext({
     userAgent:
