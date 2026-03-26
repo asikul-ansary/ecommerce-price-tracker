@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import { AmazonPage } from '../pages/amazon.page.js';
 import { FlipkartPage } from '../pages/flipkart.page.js';
 import { MyntraPage } from '../pages/myntra.page.js';
-import { AjioPage } from '../pages/ajio.page.js';
+// import { AjioPage } from '../pages/ajio.page.js';
 import { config } from '../config/config.js';
 import 'dotenv/config';
 
@@ -41,19 +41,18 @@ export async function scrapeProducts(products) {
           price = await p.getPrice();
           break;
         }
-        case 'ajio': {
-          console.log(`inside ajio!!!`);
-          const p = new AjioPage(page);
-          await p.open(product.product_url);
-          price = await p.getPrice();
-          break;
-        }
+        // case 'ajio': {
+        //   const p = new AjioPage(page);
+        //   await p.open(product.product_url);
+        //   price = await p.getPrice();
+        //   break;
+        // }
         default:
           console.warn(`Unsupported site: ${product.site}`);
           break;
       }
       if (price !== undefined) {
-        console.log(`price found!!!`);
+        console.log(`current price found : ${price}`);
         results.push({ ...product, currentPrice: price });
       }
       await page.waitForTimeout(config.scraper.delay);
