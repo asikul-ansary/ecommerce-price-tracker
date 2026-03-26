@@ -4,6 +4,7 @@ import { config } from '../config/config.js';
 const client = new MongoClient(config.mongo.uri);
 
 export async function getCollection() {
+  console.log(`connect string: ${config.mongo.uri}`);
   await client.connect();
   const db = client.db(config.mongo.dbName);
   return db.collection('products');
